@@ -54,8 +54,8 @@ const Father = () => {
 
   return (
     <>
-      <button onClick={() => setCount(count + 1)}>click</button>
       <Son count={count} />
+      <button onClick={() => setCount(count + 1)}>click</button>
     </>
   );
 };
@@ -73,14 +73,13 @@ const Son = (props) => {
 
 ```js
 const Father = () => {
+  // useRef常见的用例便是命令式地访问子组件
   const sonRef = useRef();
 
   return (
     <>
       <Son ref={sonRef} />
-      <button
-        onClick={() => sonRef.current.setCount(sonRef.current.count + 1)}
-      >
+      <button onClick={() => sonRef.current.setCount(sonRef.current.count + 1)}>
         click
       </button>
     </>
@@ -105,8 +104,31 @@ const Son = forwardRef((props, ref) => {
 });
 ```
 
+### useContext 跨组件数据传递
 
+```js
+const Context = createContext(0);
 
-```sh
-npm run start
+const Father = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <Context.Provider value={count}>
+        <Son />
+      </Context.Provider>
+      <button onClick={() => setCount(count + 1)}>click</button>
+    </>
+  );
+};
+
+const Son = () => {
+  // 接收一个 context 对象（React.createContext 的返回值）并返回该 context 的当前值
+  const context = useContext(Context);
+  return (
+    <>
+      <div>count: {context}</div>
+    </>
+  );
+};
 ```

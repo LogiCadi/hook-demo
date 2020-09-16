@@ -1,19 +1,18 @@
 import React, { createContext, useState } from "react";
-import Son_1 from "./son_1";
-import Son_2 from "./son_2";
+import Son from "./son";
 
-export const Context = createContext({
-  count: 0,
-  setCount: (count) => {},
-});
+export const Context = createContext(0);
 
 const Index = () => {
   const [count, setCount] = useState(0);
+
   return (
-    <Context.Provider value={{ count, setCount }}>
-      <Son_1 />
-      <Son_2 />
-    </Context.Provider>
+    <>
+      <Context.Provider value={count}>
+        <Son />
+      </Context.Provider>
+      <button onClick={() => setCount(count + 1)}>click</button>
+    </>
   );
 };
 

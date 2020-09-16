@@ -6,8 +6,8 @@ const Index = () => {
 
   return (
     <>
-      <button onClick={() => setCount(count + 1)}>click</button>
       <Son count={count} />
+      <button onClick={() => setCount(count + 1)}>click</button>
     </>
   );
 };

@@ -2,7 +2,7 @@ import React, { useRef, memo } from "react";
 import Son from "./son";
 
 const Index = () => {
-  // son组件的引用
+  // useRef常见的用例便是命令式地访问子组件
   const sonRef = useRef();
 
   return (
