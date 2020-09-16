@@ -1,7 +1,7 @@
 import React, { useRef, memo } from "react";
 import Son from "./son";
 
-const Index = memo(() => {
+const Index = () => {
   // son组件的引用
   const sonRef = useRef();
 
@@ -15,6 +15,6 @@ const Index = memo(() => {
       </button>
     </>
   );
-});
+};
 
 export default Index;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Son = (props: any) => {
+const Son = (props) => {
   return (
     <>
       <div id="count">count: {props.count}</div>
