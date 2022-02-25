@@ -1,6 +1,6 @@
 import React, { forwardRef, useState, useImperativeHandle } from "react";
 
-const Son = forwardRef((props, ref) => {
+const Son = (props, ref) => {
   const [count, setCount] = useState(0);
 
   useImperativeHandle(ref, () => ({
@@ -16,6 +16,6 @@ const Son = forwardRef((props, ref) => {
       <div id="count">count: {count}</div>
     </>
   );
-});
+};
 
-export default Son;
+export default forwardRef(Son);

@@ -1,4 +1,4 @@
-import React, { useRef, memo } from "react";
+import React, { useRef } from "react";
 import Son from "./son";
 
 const Index = () => {
